@@ -1,5 +1,9 @@
-<h1>New Account</h1>
+<%= content_for :body do %>
 
-<%= render 'form', account: @account %>
+	<h1>New Account</h1>
 
-<%= link_to 'Back', accounts_path %>
+	<%= render 'form', account: @account %>
+
+	<%= link_to 'Back', accounts_path %>
+
+<% end %>

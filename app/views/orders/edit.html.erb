@@ -1,6 +1,10 @@
-<h1>Editing Order</h1>
+<%= content_for :body do %>
 
-<%= render 'form', order: @order %>
+	<h1>Editing Order</h1>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+	<%= render 'form', order: @order %>
+
+	<%= link_to 'Show', @order, class: "waves-effect waves-light btn" %> |
+	<%= link_to 'Back', orders_path, class: "waves-effect waves-light btn" %>
+
+<% end %>

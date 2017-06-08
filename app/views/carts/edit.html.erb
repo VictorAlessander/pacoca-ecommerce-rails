@@ -1,6 +1,10 @@
-<h1>Editing Cart</h1>
+<%= content_for :body do %>
 
-<%= render 'form', cart: @cart %>
+	<h1>Editing Cart</h1>
 
-<%= link_to 'Show', @cart %> |
-<%= link_to 'Back', carts_path %>
+	<%= render 'form', cart: @cart %>
+
+	<%= link_to 'Show', @cart, class: "waves-effect waves-light btn" %> |
+	<%= link_to 'Back', carts_path, class: "waves-effect waves-light btn" %>
+
+<% end %>

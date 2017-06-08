@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :body do %>
 
-<p>
-  <strong>Cod:</strong>
-  <%= @category.cod %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+	<p>
+	  <strong>Cod:</strong>
+	  <%= @category.cod %>
+	</p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @category.name %>
+	</p>
+
+	<%= link_to 'Edit', edit_category_path(@category), class: "waves-effect waves-light btn" %> |
+	<%= link_to 'Back', categories_path, class: "waves-effect waves-light btn" %>
+
+<% end %>

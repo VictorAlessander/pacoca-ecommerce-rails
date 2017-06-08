@@ -1,6 +1,10 @@
-<h1>Editing Product</h1>
+<%= content_for :body do %>
 
-<%= render 'form', product: @product %>
+	<h1>Editing Product</h1>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+	<%= render 'form', product: @product %>
+
+	<%= link_to 'Show', @product, class: "waves-effect waves-light btn" %> |
+	<%= link_to 'Back', products_path, class: "waves-effect waves-light btn" %>
+
+<% end %>

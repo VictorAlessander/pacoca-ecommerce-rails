@@ -1,34 +1,38 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :body do %>
 
-<p>
-  <strong>Cod:</strong>
-  <%= @cart.cod %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cart.name %>
-</p>
+  <p>
+    <strong>Cod:</strong>
+    <%= @cart.cod %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @cart.price %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @cart.name %>
+  </p>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @cart.quantity %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @cart.price %>
+  </p>
 
-<p>
-  <strong>Total:</strong>
-  <%= @cart.total %>
-</p>
+  <p>
+    <strong>Quantity:</strong>
+    <%= @cart.quantity %>
+  </p>
 
-<p>
-  <strong>Person:</strong>
-  <%= @cart.person %>
-</p>
+  <p>
+    <strong>Total:</strong>
+    <%= @cart.total %>
+  </p>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+  <p>
+    <strong>Person:</strong>
+    <%= @cart.person %>
+  </p>
+
+  <%= link_to 'Edit', edit_cart_path(@cart), class: "waves-effect waves-light btn" %> |
+  <%= link_to 'Back', carts_path, class: "waves-effect waves-light btn" %>
+
+<% end %>

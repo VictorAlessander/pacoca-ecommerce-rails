@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :body do %>
 
-<p>
-  <strong>Cod:</strong>
-  <%= @product.cod %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+	<p>
+	  <strong>Cod:</strong>
+	  <%= @product.cod %>
+	</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @product.name %>
+	</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category %>
-</p>
+	<p>
+	  <strong>Price:</strong>
+	  <%= @product.price %>
+	</p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+	<p>
+	  <strong>Category:</strong>
+	  <%= @product.category %>
+	</p>
+
+	<%= link_to 'Edit', edit_product_path(@product), class: "waves-effect waves-light btn" %> |
+	<%= link_to 'Back', products_path, class: "waves-effect waves-light btn" %>
+
+<% end %>

@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :body do %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @person.birthday %>
-</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @person.name %>
+	</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
+	<p>
+	  <strong>Birthday:</strong>
+	  <%= @person.birthday %>
+	</p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+	<p>
+	  <strong>Email:</strong>
+	  <%= @person.email %>
+	</p>
+
+	<%= link_to 'Edit', edit_person_path(@person), class: "waves-effect waves-light btn" %> |
+	<%= link_to 'Back', people_path, class: "waves-effect waves-light btn" %>
+
+<% end %>
