@@ -4,10 +4,12 @@ one:
   cod: 1
   name: MyString
   price: 9.99
+  image: MyString
   category: one
 
 two:
   cod: 1
   name: MyString
   price: 9.99
+  image: MyString
   category: two
