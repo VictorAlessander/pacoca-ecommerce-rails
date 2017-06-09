@@ -58,3 +58,8 @@ gem 'materialize-sass'
 
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
+
+# rspec-rails is a testing framework for Rails
+group :development, :test do
+  gem 'rspec-rails'
+end
