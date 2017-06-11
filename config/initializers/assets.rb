@@ -17,3 +17,4 @@ Rails.application.config.assets.precompile += %w( materialize.css )
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( materialize.js )
 Rails.application.config.assets.precompile += %w( init.js )
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
