@@ -43,6 +43,8 @@ GEM
     arel (8.0.0)
     bindex (0.5.0)
     builder (3.2.3)
+    bulma-rails (0.4.2)
+      sass (~> 3.2)
     byebug (9.0.6)
     capybara (2.14.1)
       addressable
@@ -86,8 +88,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.5)
       mime-types (>= 1.16, < 4)
-    materialize-sass (0.98.2)
-      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -205,6 +205,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bulma-rails (~> 0.4.2)
   byebug
   capybara (~> 2.13)
   cocoon
@@ -213,7 +214,6 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  materialize-sass
   puma (~> 3.7)
   rails (~> 5.1.1)
   rspec-rails

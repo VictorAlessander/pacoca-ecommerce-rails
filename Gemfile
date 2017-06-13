@@ -53,8 +53,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# materialize-sass is a Sass powered version of Materialize, a modern responsive front-end framework based on Material Design.
-gem 'materialize-sass'
+# A modern CSS framework based on Flexbox
+gem 'bulma-rails', "~> 0.4.2"
 
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'

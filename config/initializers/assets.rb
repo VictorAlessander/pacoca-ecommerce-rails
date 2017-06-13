@@ -13,8 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( materialize.css )
-Rails.application.config.assets.precompile += %w( style.css )
-Rails.application.config.assets.precompile += %w( materialize.js )
-Rails.application.config.assets.precompile += %w( init.js )
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+Rails.application.config.assets.precompile += %w( bulma.css )
+Rails.application.config.assets.precompile += %w( hero.css )
+Rails.application.config.assets.precompile += %w( bulma.js )
+#Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
