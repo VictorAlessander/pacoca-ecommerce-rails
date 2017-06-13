@@ -12,48 +12,59 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :person_name %>
+    <%= form.label :name, class: 'label' %>
+    <%= form.text_field :name, id: :person_name, class: 'input' %>
   </div>
 
   <div class="field">
-    <%= form.label :birthday %>
-    <%= form.date_select :birthday, id: :person_birthday, class: 'input' %>
+    <%= form.label :birthday, class: 'label' %>
+    <%= form.date_select :birthday, id: :person_birthday, start_year: 1940, class: 'input' %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :person_email %>
+    <%= form.label :email, class: 'label' %>
+    <%= form.text_field :email, id: :person_email, class: 'input' %>
   </div>
 
   <%= form.fields_for :address do |address_fields| %>
     <div class="field">
-      <%= form.label :street, class: 'label' %>
+      <%= address_fields.label :street, class: 'label' %>
       <%= address_fields.text_field :street, class: 'input' %>
     </div>
     <div class="field">
-      <%= form.label :cep, class: 'label' %>
+      <%= address_fields.label :cep, class: 'label' %>
       <%= address_fields.text_field :cep, class: 'input' %>
     </div>
     <div class="field">
-      <%= form.label :city, class: 'label' %>
+      <%= address_fields.label :city, class: 'label' %>
       <%= address_fields.text_field :city, class: 'input' %>
     </div>
     <div class="field">
-      <%= form.label :state, class: 'label' %>
-      <%= address_fields.select :state, options_for_states(@person.address.state) %>
+      <%= address_fields.label :state, class: 'label' %>
+      <%= address_fields.select :state, options_for_state(@person.address.state) %>
     </div>
   <% end %>
 
   <div id="phones">
-    <%= link_to_add_association('[Add Phone]', form, :phones, form_name: 'form') %>
+    <%= link_to_add_association('[Add Phone]', form, :phones, form_name: 'form', class: 'button is-primary') %>
 
     <%= form.fields_for :phones do |phones_fields| %>
       <%= render partial: "phone_fields", locals: {form: phones_fields} %>
     <% end %>
   </div>
 
+  <%= form.fields_for :account do |account_fields| %>
+    <div class="field">
+      <%= account_fields.label :username, class: 'label' %>
+      <%= account_fields.text_field :username, class: 'input' %>
+    </div>
+    <div class="field">
+      <%= account_fields.label :password, class: 'label' %>
+      <%= account_fields.text_field :password, class: 'input', type: 'password' %>
+    </div>
+  <% end %>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create', class: 'button is-sucess' %>
   </div>
 <% end %>
