@@ -19,4 +19,8 @@ RSpec.describe Category, type: :model do
 		subject.cod = Faker::Number.number(3)
 		expect(subject).to_not be_valid
 	end
+	
+	describe "Associations" do
+		it {should have_many(:products)}
+	end
 end
