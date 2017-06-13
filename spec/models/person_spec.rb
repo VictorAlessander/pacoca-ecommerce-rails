@@ -32,6 +32,6 @@ RSpec.describe Person, type: :model do
 		it {should have_one(:address)}
 		it {should have_one(:cart)}
 		it {should have_many(:orders)}
-		it {should have_many(:phones)}		
+		it {should have_many(:phones)}
 	end
 end
