@@ -1,41 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
   <title><%= yield :title %></title>
 
-	<%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
 
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <%= stylesheet_link_tag "materialize" %>
-  <%= stylesheet_link_tag "style" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag "bulma" %>
+  <%= stylesheet_link_tag "hero" %>
 </head>
 <body>
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Paçoca</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
+  <section class="hero is-primary is-large header-image">
+    <div class="hero-head">
+      <header class="nav">
+        <div class="container">
+          <div class="nav-left">
+            <a class="nav-item">Paçoca</a>
+          </div>
+          <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <div class="nav-right nav-menu">
+            <a class="nav-item is-active">Home</a>
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <% if @current_user %>
+              <a class="nav-item">Cart</a>
+              <a class="nav-item"><%= @current_user.name %></a>
+              <a class="nav-item">Logout</a>
+            <% elsif %>
+              <a class="nav-item">Login</a>
+            <% end %>
+
+            <span class="nav-item">
+              <a class="button is-info is-outlined is-inverted">
+                <span class="icon">
+                  <i class="fa fa-github"></i>
+                </span>
+                <span>Victor Alessander</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </header>
     </div>
-  </nav>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-2">
+          Hero Heading
+        </h1>
+        <h2 class="subtitle is-5">
+          A hero description could go here.
+        </h2>
+        <p>
+          <a class="button is-outlined">
+            <span class="icon">
+              <i class="fa fa-download"></i> 
+            </span>
+            <span>
+              Download
+            </span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
 
   <%= yield :body %>
 
-  <!--  Scripts-->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+        </p>
+        <p>
+          <a class="icon" href="https://github.com/jgthms/bulma">
+            <i class="fa fa-github"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <%= javascript_include_tag "bulma" %>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <%= javascript_include_tag "materialize" %>
-  <%= javascript_include_tag "init" %>
-
-  </body>
+</body>
 </html>
