@@ -18,12 +18,39 @@
 
   <div class="field">
     <%= form.label :birthday %>
-    <%= form.date_select :birthday, id: :person_birthday %>
+    <%= form.date_select :birthday, id: :person_birthday, class: 'input' %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email, id: :person_email %>
+  </div>
+
+  <%= form.fields_for :address do |address_fields| %>
+    <div class="field">
+      <%= form.label :street, class: 'label' %>
+      <%= address_fields.text_field :street, class: 'input' %>
+    </div>
+    <div class="field">
+      <%= form.label :cep, class: 'label' %>
+      <%= address_fields.text_field :cep, class: 'input' %>
+    </div>
+    <div class="field">
+      <%= form.label :city, class: 'label' %>
+      <%= address_fields.text_field :city, class: 'input' %>
+    </div>
+    <div class="field">
+      <%= form.label :state, class: 'label' %>
+      <%= address_fields.select :state, options_for_states(@person.address.state) %>
+    </div>
+  <% end %>
+
+  <div id="phones">
+    <%= link_to_add_association('[Add Phone]', form, :phones, form_name: 'form') %>
+
+    <%= form.fields_for :phones do |phones_fields| %>
+      <%= render partial: "phone_fields", locals: {form: phones_fields} %>
+    <% end %>
   </div>
 
   <div class="actions">
