@@ -24,9 +24,9 @@
           <td><%= product.price %></td>
           <td><%= product.image %></td>
           <td><%= product.category %></td>
-          <td><%= link_to 'Show', product, class: "waves-effect waves-light btn" %></td>
-          <td><%= link_to 'Edit', edit_product_path(product), class: "waves-effect waves-light btn" %></td>
-          <td><%= link_to 'Destroy', product,, class: "waves-effect waves-light btn", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', product %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -34,6 +34,6 @@
 
   <br>
 
-  <%= link_to 'New Product', new_product_path, class: "waves-effect waves-light btn" %>
+  <%= link_to 'New Product', new_product_path %>
 
 <% end %>

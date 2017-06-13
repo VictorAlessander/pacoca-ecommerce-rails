@@ -1,5 +1,9 @@
-<h1>New Phone</h1>
+<%= content_for :body do %>
 
-<%= render 'form', phone: @phone %>
+	<h1>New Phone</h1>
 
-<%= link_to 'Back', phones_path %>
+	<%= render 'form', phone: @phone %>
+
+	<%= link_to 'Back', phones_path %>
+
+<% end %>

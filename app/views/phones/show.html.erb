@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :body do %>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @phone.phone %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Person:</strong>
-  <%= @phone.person %>
-</p>
+	<p>
+	  <strong>Phone:</strong>
+	  <%= @phone.phone %>
+	</p>
 
-<%= link_to 'Edit', edit_phone_path(@phone) %> |
-<%= link_to 'Back', phones_path %>
+	<p>
+	  <strong>Person:</strong>
+	  <%= @phone.person %>
+	</p>
+
+	<%= link_to 'Edit', edit_phone_path(@phone) %> |
+	<%= link_to 'Back', phones_path %>
+
+<% end %>
