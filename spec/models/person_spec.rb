@@ -26,4 +26,12 @@ RSpec.describe Person, type: :model do
 		subject.birthday = Faker::Date.birthday
 		expect(subject).to_not be_valid
 	end
+
+	describe "Associations" do
+		it {should have_one(:account)}
+		it {should have_one(:address)}
+		it {should have_one(:cart)}
+		it {should have_many(:orders)}
+		it {should have_many(:phones)}		
+	end
 end
