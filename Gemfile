@@ -62,4 +62,12 @@ gem 'faker'
 # rspec-rails is a testing framework for Rails
 group :development, :test do
   gem 'rspec-rails'
+  # Makes tests easy on the fingers and the eyes
+  gem 'shoulda'
 end
+
+# JQuery for rails
+gem 'jquery-rails'
+
+# Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
+gem 'cocoon'
