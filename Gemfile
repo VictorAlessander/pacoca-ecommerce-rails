@@ -62,8 +62,12 @@ gem 'faker'
 # rspec-rails is a testing framework for Rails
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   # Makes tests easy on the fingers and the eyes
   gem 'shoulda'
+
+  # A library for setting up Ruby objects as test data.
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 # JQuery for rails
