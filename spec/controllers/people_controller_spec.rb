@@ -4,10 +4,7 @@ require 'faker'
 
 RSpec.describe PeopleController do
 
-	let(:person) {Person.create(
-		name: Faker::Name.name,
-		birthday: Faker::Date.birthday,
-		email: Faker::Internet.email)}
+	let(:person) {create :person}
 
 	describe 'GET #index' do
 		it 'renders the :index view' do
@@ -34,13 +31,9 @@ RSpec.describe PeopleController do
 	describe 'POST #create' do
 		context 'with valid attributes' do
 			it 'creates a new person' do
-				post :create, params: {person: {id: person.id,
-					name: person.name,
-					birthday: person.birthday,
-					email: person.email
-					}
-				}
-				expect{:params}.to change{Person.count}.by(1)
+				expect{
+					post :create, params: FactoryGirl.attributes_for(:person)
+					}.to change{Person.count}.by(1)
 			end
 		end
 	end
