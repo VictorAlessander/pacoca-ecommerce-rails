@@ -39,39 +39,12 @@
             <% elsif %>
               <a class="nav-item">Login</a>
             <% end %>
-
-            <span class="nav-item">
-              <a class="button is-info is-outlined is-inverted">
-                <span class="icon">
-                  <i class="fa fa-github"></i>
-                </span>
-                <span>Victor Alessander</span>
-              </a>
-            </span>
           </div>
         </div>
       </header>
     </div>
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title is-2">
-          Hero Heading
-        </h1>
-        <h2 class="subtitle is-5">
-          A hero description could go here.
-        </h2>
-        <p>
-          <a class="button is-outlined">
-            <span class="icon">
-              <i class="fa fa-download"></i> 
-            </span>
-            <span>
-              Download
-            </span>
-          </a>
-        </p>
-      </div>
-    </div>
+
+    <%= yield :section %>
   </section>
 
   <div class="container">
@@ -82,12 +55,10 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+          <strong>Paçoca</strong> by Victor Alessander.
         </p>
         <p>
-          <a class="icon" href="https://github.com/jgthms/bulma">
+          <a class="icon" href="https://github.com/VictorAlessander/">
             <i class="fa fa-github"></i>
           </a>
         </p>
