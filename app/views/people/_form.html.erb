@@ -41,11 +41,15 @@
     </div>
     <div class="field">
       <%= address_fields.label :state, class: 'label' %>
-      <%= address_fields.select :state, options_for_state(@person.address.state) %>
+      <p class="control">
+        <div class="select">
+          <%= address_fields.select :state, options_for_state(@person.address.state), class: "input" %>
+        </div>
+      </p>
     </div>
   <% end %>
 
-  <div id="phones">
+  <div id="phones" style="margin-top: 10px;">
     <%= link_to_add_association('[Add Phone]', form, :phones, form_name: 'form', class: 'button is-primary') %>
 
     <%= form.fields_for :phones do |phones_fields| %>
