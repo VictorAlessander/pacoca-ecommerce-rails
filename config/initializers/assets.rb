@@ -16,4 +16,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( bulma.css )
 Rails.application.config.assets.precompile += %w( hero.css )
 Rails.application.config.assets.precompile += %w( bulma.js )
+Rails.application.config.assets.precompile += %w( masks.js )
 #Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
