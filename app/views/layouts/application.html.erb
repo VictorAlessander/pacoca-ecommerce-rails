@@ -30,11 +30,11 @@
             <span></span>
           </span>
           <div class="nav-right nav-menu">
-            <a class="nav-item is-active">Home</a>
+            <%= link_to('Home', {:controller => 'home', :action => 'index'}, {class: 'nav-item'}) %>
 
-            <% if @current_user %>
-              <a class="nav-item">Cart</a>
-              <a class="nav-item"><%= @current_user.name %></a>
+            <% if current_user %>
+              <%= link_to 'Cart', carts_path, {class: 'nav-item'} %>
+              <%= link_to "#{current_user}", orders_path, {class: 'nav-item'} %>
               <a class="nav-item">Logout</a>
             <% elsif %>
               <a class="nav-item">Login</a>
