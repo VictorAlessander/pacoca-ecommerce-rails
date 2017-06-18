@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :birthday, class: 'label' %>
-    <%= form.date_select :birthday, id: :person_birthday, start_year: 1940, class: 'input' %>
+    <%= form.date_select(:birthday, {id: :person_birthday, :start_year => 1940}, {:class => 'select'}) %>
   </div>
 
   <div class="field">
@@ -41,11 +41,7 @@
     </div>
     <div class="field">
       <%= address_fields.label :state, class: 'label' %>
-      <p class="control">
-        <div class="select">
-          <%= address_fields.select :state, options_for_state(@person.address.state), class: "input" %>
-        </div>
-      </p>
+      <%= address_fields.select :state, options_for_state(@person.address.state), {}, {class: 'select'} %>
     </div>
   <% end %>
 
@@ -58,7 +54,7 @@
   </div>
 
   <%= form.fields_for :account do |account_fields| %>
-    <div class="field">
+    <div class="field", style="margin-top: 10px;">
       <%= account_fields.label :username, class: 'label' %>
       <%= account_fields.text_field :username, class: 'input' %>
     </div>
@@ -68,7 +64,8 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit 'Create', class: 'button is-sucess' %>
+  <div class="actions is-grouped">
+    <%= form.submit 'Create', class: 'button is-success' %>
+    <%= link_to 'Back', people_path, class: 'button is-primary' %>
   </div>
 <% end %>
