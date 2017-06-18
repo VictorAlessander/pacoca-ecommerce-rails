@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170613014107) do
     t.string "name"
     t.decimal "price"
     t.integer "quantity"
-    t.decimal "total"
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
