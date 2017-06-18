@@ -5,6 +5,7 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @carts = Cart.all
+    @total_price = Cart.total_price
   end
 
   # GET /carts/1
@@ -69,6 +70,6 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.require(:cart).permit(:cod, :name, :price, :quantity, :total, :person_id)
+      params.require(:cart).permit(:cod, :name, :price, :quantity, :person_id)
     end
 end
