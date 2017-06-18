@@ -31,8 +31,8 @@ module ApplicationHelper
   ]
 
 
-def options_for_state(choice)
-	options_for_select(ESTADOS_BRASILEIROS, choice)
-end
+  def options_for_state(choice)
+    options_for_select(ESTADOS_BRASILEIROS, choice)
+  end
 
 end
