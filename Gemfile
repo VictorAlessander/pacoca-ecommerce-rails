@@ -75,3 +75,8 @@ gem 'jquery-rails'
 
 # Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
 gem 'cocoon'
+
+# A Ruby gem to load environment variables from `.env`
+gem 'dotenv-rails'
+
+ruby '2.4.0'
