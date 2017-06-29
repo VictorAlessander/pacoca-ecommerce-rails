@@ -85,6 +85,7 @@ RSpec.describe PeopleController do
 				expect(@person.birthday).to_not eq('1997-04-05')
 				expect(@person.email).to_not eq('alessander@protonmail.com')
 			end
+
 			it 'Re-renders the edit method' do
 				put :update, params: {id: @person.id, person: FactoryGirl.attributes_for(:person,
 					name: nil,
@@ -101,6 +102,7 @@ RSpec.describe PeopleController do
 				delete :destroy, params: {id: @person.id}
 				}.to change{Person.count}.by(-1)
 		end
+
 		it 'Redirects to person#index' do
 			delete :destroy, params: {id: @person.id}
 			expect(response).to redirect_to(:action => :index)
