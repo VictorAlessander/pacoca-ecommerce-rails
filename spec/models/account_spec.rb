@@ -3,8 +3,7 @@ require 'faker'
 
 
 RSpec.describe Account, type: :model do
-	let(:person) {Person.create(name: Faker::Name.name, birthday: Faker::Date.birthday, email: Faker::Internet.email)}
-  subject {described_class.new}
+	let(:person) {create :person}
 
   it "Valid with all attributes" do
     subject.username = Faker::Name.first_name

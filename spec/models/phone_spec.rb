@@ -3,10 +3,7 @@ require 'faker'
 
 
 RSpec.describe Phone, type: :model do
-  let(:person) {Person.create(
-  	name: Faker::Name.name,
-  	birthday: Faker::Date.birthday,
-  	email: Faker::Internet.email)}
+  let(:person) {create :person}
 
   subject {described_class.new}
 

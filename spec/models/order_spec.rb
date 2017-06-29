@@ -3,29 +3,13 @@ require 'faker'
 
 
 RSpec.describe Order, type: :model do
-	let(:person) {Person.create(
-		name: Faker::Name.name,
-		birthday: Faker::Date.birthday,
-		email: Faker::Internet.email)}
+	let(:person) {create :person}
 
+	let(:category) {create :category}
 
-	let(:category) {Category.create(
-		cod: Faker::Number.number(3),
-		name: Faker::Commerce.department(1))}
+	let(:product) {create :product}
 
-	let(:product) {Product.create(
-		cod: Faker::Number.number(3),
-		name: Faker::Commerce.product_name,
-		price: Faker::Commerce.price,
-		category_id: category.id)}
-
-	let(:cart) {Cart.create(
-		cod: product.cod,
-		name: product.name,
-		price: product.price,
-		quantity: 1,
-		total: product.price,
-		person_id: person.id)}
+	let(:cart) {create :cart}
 
 	subject {described_class.new}
 
@@ -34,7 +18,7 @@ RSpec.describe Order, type: :model do
 		subject.name = cart.name
 		subject.price = cart.price
 		subject.quantity = cart.quantity
-		subject.total = cart.total
+		subject.total = (cart.price * cart.quantity)
 		subject.person_id = person.id
 		subject.cart_id = cart.id
 		expect(subject).to be_valid

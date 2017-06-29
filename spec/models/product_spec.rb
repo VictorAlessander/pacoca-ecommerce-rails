@@ -3,7 +3,7 @@ require 'faker'
 
 
 RSpec.describe Product, type: :model do
-	let(:category) {Category.create(cod: Faker::Number.number(3), name: Faker::Commerce.department(1))}
+	let(:category) {create :category}
 	subject{described_class.new}
 	
 	it "Valid with all attributes" do
