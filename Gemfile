@@ -79,4 +79,10 @@ gem 'cocoon'
 # A Ruby gem to load environment variables from `.env`
 gem 'dotenv-rails'
 
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
+
+# Easily include static pages in your Rails app.
+#gem 'high_voltage', '~> 3.0.0'
+
 ruby '2.4.0'

@@ -30,14 +30,14 @@
             <span></span>
           </span>
           <div class="nav-right nav-menu">
-            <%= link_to('Home', {:controller => 'home', :action => 'index'}, {class: 'nav-item'}) %>
+            <%= link_to('Home', home_index_path, {class: 'nav-item'}) %>
 
-            <% if current_user %>
+            <% if user_signed_in? %>
               <%= link_to 'Cart', carts_path, {class: 'nav-item'} %>
               <%= link_to "#{current_user}", orders_path, {class: 'nav-item'} %>
-              <a class="nav-item">Logout</a>
-            <% elsif %>
-              <a class="nav-item">Login</a>
+              <%= link_to 'Logout', destroy_user_session_path, {class: 'nav-item'} %>
+            <% else %>
+              <%= link_to 'Login', new_user_session_path, {class: 'nav-item'} %>
             <% end %>
           </div>
         </div>
@@ -46,6 +46,17 @@
 
     <%= yield :section %>
   </section>
+  
+  <% if notice %>
+    <script type="text/javascript">
+      alert(<%= notice %>);
+    </script>
+  <% end %>
+  <% if alert %>
+    <script type="text/javascript">
+      alert(<%= alert %>);
+    </script>
+  <% end %>
 
   <div class="container">
     <%= yield :body %>
@@ -55,7 +66,7 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong>Paçoca</strong> by Victor Alessander.
+          <strong><%= current_user %></strong> by Victor Alessander.
         </p>
         <p>
           <a class="icon" href="https://github.com/VictorAlessander/">
