@@ -1,0 +1,23 @@
+language: ruby
+
+rvm:
+  - 2.4.0
+
+gemfile:
+  - Gemfile
+
+sudo: false
+
+cache: bundler
+
+env:
+  - DB=sqlite
+
+script:
+  - RAILS_ENV=test bundle exec rails db:create db:migrate --trace
+  - bundle exec rails db:test:prepare
+  - bundle exec rspec spec/
+
+before_install: "rm ${BUNDLE_GEMFILE}.lock"
+
+before_script: "bundle update"
