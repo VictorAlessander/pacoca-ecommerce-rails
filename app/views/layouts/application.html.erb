@@ -34,8 +34,8 @@
 
             <% if user_signed_in? %>
               <%= link_to 'Cart', carts_path, {class: 'nav-item'} %>
-              <%= link_to "#{current_user}", orders_path, {class: 'nav-item'} %>
-              <%= link_to 'Logout', destroy_user_session_path, {class: 'nav-item'} %>
+              <%= link_to "#{current_user.email}", orders_path, {class: 'nav-item'} %>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item' %>
             <% else %>
               <%= link_to 'Login', new_user_session_path, {class: 'nav-item'} %>
             <% end %>
@@ -49,12 +49,12 @@
   
   <% if notice %>
     <script type="text/javascript">
-      alert(<%= notice %>);
+      alert("<%= notice %>");
     </script>
   <% end %>
   <% if alert %>
     <script type="text/javascript">
-      alert(<%= alert %>);
+      alert("<%= alert %>");
     </script>
   <% end %>
 
@@ -66,7 +66,7 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-          <strong><%= current_user %></strong> by Victor Alessander.
+          <strong>Paçoca</strong> by Victor Alessander.
         </p>
         <p>
           <a class="icon" href="https://github.com/VictorAlessander/">
