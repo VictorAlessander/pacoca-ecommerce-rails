@@ -21,11 +21,6 @@
     <%= form.date_select(:birthday, {id: :person_birthday, :start_year => 1940}, {:class => 'select'}) %>
   </div>
 
-  <div class="field">
-    <%= form.label :email, class: 'label' %>
-    <%= form.text_field :email, id: :person_email, class: 'input' %>
-  </div>
-
   <%= form.fields_for :address do |address_fields| %>
     <div class="field">
       <%= address_fields.label :street, class: 'label' %>

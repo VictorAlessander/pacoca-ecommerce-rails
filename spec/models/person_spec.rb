@@ -3,28 +3,25 @@ require 'faker'
 
 
 RSpec.describe Person, type: :model do
-	subject {described_class.new}
+	let(:user) {create :user}
+	let(:person) {create :person}
 
 	it "Valid with all attributes" do
-		subject.name = Faker::Name.name
-		subject.birthday = Faker::Date.birthday
-		subject.email = Faker::Internet.email
-		expect(subject).to be_valid
+		person.name = Faker::Name.name
+		person.birthday = Faker::Date.birthday
+		person.user_id = user.id
+		expect(person).to be_valid
 	end
 
 	it "Not valid without name" do
-		expect(subject).to_not be_valid
+		person.name = nil
+		expect(person).to_not be_valid
 	end
 
 	it "Not valid without birthday" do
-		subject.name = Faker::Name.name
-		expect(subject).to_not be_valid
-	end
-
-	it "Not valid without email" do
-		subject.name = Faker::Name.name
-		subject.birthday = Faker::Date.birthday
-		expect(subject).to_not be_valid
+		person.name = Faker::Name.name
+		person.birthday = nil
+		expect(person).to_not be_valid
 	end
 
 	describe "Associations" do
@@ -33,5 +30,6 @@ RSpec.describe Person, type: :model do
 		it {should have_one(:cart)}
 		it {should have_many(:orders)}
 		it {should have_many(:phones)}
+		it {should belong_to(:user)}
 	end
 end

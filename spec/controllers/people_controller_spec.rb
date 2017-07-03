@@ -7,8 +7,10 @@ RSpec.describe PeopleController do
 		@person = create(:person,
 			name: 'Joaozinho',
 			birthday: "1990-04-28",
-			email: 'joao.zinho@umbrellacorporation.com')
+			user_id: user.id)
 	end
+
+	let(:user) {create :user}
 
 	describe 'GET #index' do
 		it 'Renders the :index view' do
@@ -34,7 +36,7 @@ RSpec.describe PeopleController do
 		context 'With valid attributes' do
 			it 'Creates a new person' do
 				expect{
-					post :create, params: {person: FactoryGirl.attributes_for(:person)}
+					post :create, params: {person: FactoryGirl.attributes_for(:person, user_id: user.id)}
 					}.to change{Person.count}.by(1)
 			end
 		end
@@ -83,14 +85,12 @@ RSpec.describe PeopleController do
 				@person.reload
 				expect(@person.name).to eq("Joaozinho")
 				expect(@person.birthday).to_not eq('1997-04-05')
-				expect(@person.email).to_not eq('alessander@protonmail.com')
 			end
 
 			it 'Re-renders the edit method' do
 				put :update, params: {id: @person.id, person: FactoryGirl.attributes_for(:person,
 					name: nil,
-					birthday: '1997-04-05',
-					email: 'alessander@protonmail.com')}
+					birthday: '1997-04-05')}
 				expect(response).to render_template(:edit)
 			end
 		end

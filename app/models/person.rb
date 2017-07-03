@@ -1,5 +1,7 @@
 class Person < ApplicationRecord
-	validates_presence_of :name, :birthday, :email
+	belongs_to :user
+
+	validates_presence_of :name, :birthday
 
 	has_one :account, :dependent => :destroy
 	has_one :address, :dependent => :destroy
