@@ -3,13 +3,9 @@ require 'faker'
 
 
 RSpec.describe Person, type: :model do
-	let(:user) {create :user}
 	let(:person) {create :person}
 
 	it "Valid with all attributes" do
-		person.name = Faker::Name.name
-		person.birthday = Faker::Date.birthday
-		person.user_id = user.id
 		expect(person).to be_valid
 	end
 
@@ -19,7 +15,6 @@ RSpec.describe Person, type: :model do
 	end
 
 	it "Not valid without birthday" do
-		person.name = Faker::Name.name
 		person.birthday = nil
 		expect(person).to_not be_valid
 	end
