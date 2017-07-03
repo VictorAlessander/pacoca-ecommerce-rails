@@ -85,4 +85,4 @@ gem 'devise'
 # Easily include static pages in your Rails app.
 #gem 'high_voltage', '~> 3.0.0'
 
-ruby '2.4.0'
+ruby '2.4.1'
