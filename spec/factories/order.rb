@@ -9,6 +9,5 @@ FactoryGirl.define do
 		quantity 1
 		total 100.00
 		association :person
-		association :cart
 	end
 end
