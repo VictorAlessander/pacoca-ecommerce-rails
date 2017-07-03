@@ -48,17 +48,6 @@
     <% end %>
   </div>
 
-  <%= form.fields_for :account do |account_fields| %>
-    <div class="field", style="margin-top: 10px;">
-      <%= account_fields.label :username, class: 'label' %>
-      <%= account_fields.text_field :username, class: 'input' %>
-    </div>
-    <div class="field">
-      <%= account_fields.label :password, class: 'label' %>
-      <%= account_fields.text_field :password, class: 'input', type: 'password' %>
-    </div>
-  <% end %>
-
   <div class="actions is-grouped">
     <%= form.submit 'Create', class: 'button is-success' %>
     <%= link_to 'Back', people_path, class: 'button is-primary' %>

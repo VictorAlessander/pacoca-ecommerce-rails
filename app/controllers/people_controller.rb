@@ -16,7 +16,6 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
     @person.build_address
-    @person.build_account
   end
 
   # GET /people/1/edit
@@ -73,7 +72,6 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(:name, :birthday, :user_id,
         {address_attributes: [:street, :cep, :city, :state]},
-        {phones_attributes: [:phone]},
-        {account_attributes: [:username, :password]})
+        {phones_attributes: [:phone]})
     end
 end
