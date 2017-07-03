@@ -25,7 +25,6 @@ RSpec.describe Person, type: :model do
 	end
 
 	describe "Associations" do
-		it {should have_one(:account)}
 		it {should have_one(:address)}
 		it {should have_one(:cart)}
 		it {should have_many(:orders)}
