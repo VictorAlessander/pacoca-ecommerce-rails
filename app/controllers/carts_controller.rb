@@ -4,7 +4,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = Cart.all.where(person_id: current_user.id)
     @total_price = Cart.total_price
   end
 
