@@ -21,6 +21,11 @@
     <%= form.date_select(:birthday, {id: :person_birthday, :start_year => 1940}, {:class => 'select'}) %>
   </div>
 
+  <div class="field">
+    <%= form.label :user_id, class: 'label' %>
+    <%= form.text_field :user_id, readonly: true, class: 'input', value: current_user.id %>
+  </div>
+
   <%= form.fields_for :address do |address_fields| %>
     <div class="field">
       <%= address_fields.label :street, class: 'label' %>
@@ -48,7 +53,7 @@
     <% end %>
   </div>
 
-  <div class="actions is-grouped">
+  <div class="actions is-grouped" style="margin-top: 20px;">
     <%= form.submit 'Create', class: 'button is-success' %>
     <%= link_to 'Back', people_path, class: 'button is-primary' %>
   </div>
