@@ -2,8 +2,6 @@
 
   <p id="notice"><%= notice %></p>
 
-  <h1>Carts</h1>
-
   <table class="table">
     <thead>
       <tr>
@@ -17,13 +15,14 @@
     </thead>
 
     <tbody>
-      <% @carts.each do |cart| %>
+      <% @cart.each do |cart| %>
         <tr>
           <td><%= cart.cod %></td>
           <td><%= cart.name %></td>
           <td><%= cart.price %></td>
           <td><%= cart.quantity %></td>
           <td><%= cart.person %></td>
+          <td><%= link_to 'Destroy', cart, method: :delete %></td>
         </tr>
       <% end %>
     </tbody>
@@ -41,6 +40,6 @@
 
   <br>
 
-  <%= link_to 'New Cart', new_cart_path, class: 'button is-primary' %>
+  <%= link_to 'Continue to shopping', categories_path, class: 'button is-primary' %>
 
 <% end %>
