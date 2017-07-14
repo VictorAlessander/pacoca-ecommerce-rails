@@ -1,11 +1,36 @@
 class CartsController < ApplicationController
+
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all.where(person_id: current_user.id)
+    @cart = Cart.all.where(person_id: current_user.id)
     @total_price = Cart.total_price
+  end
+
+  def add_product
+    user = current_user.id
+
+    @product = Product.all.find(params[:product_id])
+
+    @cart_product = Cart.find_by(cod: @product.cod)
+
+    if @cart_product
+      @cart_product.quantity += 1
+      @cart_product.save
+    else
+      @new_cart_product = Cart.create(
+        cod: @product.cod,
+        name: @product.name,
+        price: @product.price,
+        quantity: 1,
+        person_id: user)
+
+      @new_cart_product.save
+    end
+
+    redirect_to action: :index
   end
 
   # GET /carts/1
@@ -55,17 +80,18 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.destroy
-    respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
-      format.json { head :no_content }
+    if @cart
+      @cart.destroy
+      redirect_to action: :index
+    else
+      redirect_to action: :index
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_cart
-      @cart = Cart.find(params[:id])
+      @cart = Cart.find_by(id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

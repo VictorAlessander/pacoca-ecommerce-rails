@@ -2,18 +2,16 @@
 
   <p id="notice"><%= notice %></p>
 
-  <% @products.each_slice(4) do |products| %>
+  <% @products.each do |product| %>
     <div class="columns">
-      <% products.each do |product| %>
-        <div class="column is-one-quarter">
-          <figure class="image is-128x128">
-            <img src="http://bulma.io/images/placeholders/128x128.png">
-          </figure>
-          <h3><%= product.name %></h3>
-          <p>R$ <%= product.price %></p>
-          <a href="#", class="button is-success">Add to cart</a>
-        </div>
-      <% end %>
+      <div class="column is-one-quarter">
+        <figure class="image is-128x128">
+          <img src="http://bulma.io/images/placeholders/128x128.png">
+        </figure>
+        <h3><%= product.name %></h3>
+        <p>R$ <%= product.price %></p>
+        <%= link_to "Add to cart", {controller: "carts", action: "add_product", product_id: product.id}, class: 'button is-primary' %>
+      </div>
     </div>
   <% end; nil %>
 

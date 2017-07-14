@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   resources :addresses
   resources :phones
   resources :orders
-  resources :carts
+
+  resources :carts do
+    collection do
+      get "add_product"
+    end
+  end
+
   resources :products
   resources :categories
   resources :accounts
