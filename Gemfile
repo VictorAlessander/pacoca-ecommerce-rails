@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -57,8 +55,14 @@ gem 'bulma-rails', "~> 0.4.2"
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
 
-# rspec-rails is a testing framework for Rails
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+  # rspec-rails is a testing framework for Rails
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   # Makes tests easy on the fingers and the eyes
