@@ -32,6 +32,32 @@ class CartsController < ApplicationController
 
     redirect_to action: :index
   end
+  
+  def increment_product
+    user = current_user.id
+    
+    @cart_product = Cart.find_by(cod: params[:product_cod], person_id: user)
+    
+    if @cart_product
+      @cart_product.quantity += 1
+      @cart_product.save
+    end
+      
+    redirect_to action: :index
+  end
+
+  def decrement_product
+    user = current_user.id
+    
+    @cart_product = Cart.find_by(cod: params[:product_cod], person_id: user)
+    
+    if @cart_product.quantity > 1
+      @cart_product.quantity -= 1
+      @cart_product.save
+    end
+    
+    redirect_to action: :index
+  end
 
   # GET /carts/1
   # GET /carts/1.json

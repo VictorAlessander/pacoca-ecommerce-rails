@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :carts do
     collection do
       get "add_product"
+      get "increment_product"
+      get "decrement_product"
     end
   end
 

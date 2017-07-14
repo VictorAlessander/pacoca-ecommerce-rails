@@ -21,8 +21,11 @@
           <td><%= cart.name %></td>
           <td><%= cart.price %></td>
           <td><%= cart.quantity %></td>
-          <td><%= cart.person %></td>
-          <td><%= link_to 'Destroy', cart, method: :delete %></td>
+          <td>
+            <%= link_to '+', {controller: 'carts', action: 'increment_product', product_cod: cart.cod}, class: 'button is-primary' %>
+            <%= link_to '-', {controller: 'carts', action: 'decrement_product', product_cod: cart.cod}, class: 'button is-primary' %>
+          </td>
+          <td><%= link_to 'Destroy', cart, method: :delete, class: 'button is-danger' %></td>
         </tr>
       <% end %>
     </tbody>
