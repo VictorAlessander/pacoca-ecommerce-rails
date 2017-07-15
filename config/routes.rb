@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get "add_product"
       get "increment_product"
       get "decrement_product"
+      get "checkout"
     end
   end
 
