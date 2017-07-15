@@ -70,6 +70,9 @@ group :development, :test do
 
   # A library for setting up Ruby objects as test data.
   gem "factory_girl_rails", "~> 4.0"
+
+  # An IRB alternative and runtime developer console
+  gem "pry"
 end
 
 # JQuery for rails
