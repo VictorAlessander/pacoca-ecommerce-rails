@@ -1,1 +1,1 @@
-web: rails s -b $IP -p $PORT
+web: rails s -p 3000
