@@ -10,7 +10,7 @@
         </figure>
         <h3><%= product.name %></h3>
         <p>R$ <%= product.price %></p>
-        <%= link_to "Add to cart", {controller: "carts", action: "add_product", product_id: product.id}, class: 'button is-primary' %>
+        <%= link_to "Add to cart", add_product_products_path(product_id: product.id), remote: true, class: "button is-primary" %>
       </div>
     </div>
   <% end; nil %>

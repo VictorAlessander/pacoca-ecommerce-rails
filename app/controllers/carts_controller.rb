@@ -8,30 +8,6 @@ class CartsController < ApplicationController
     @cart = Cart.all.where(person_id: current_user.id)
     @total_price = Cart.total_price
   end
-
-  def add_product
-    user = current_user.id
-
-    @product = Product.all.find(params[:product_id])
-
-    @cart_product = Cart.find_by(cod: @product.cod)
-
-    if @cart_product
-      @cart_product.quantity += 1
-      @cart_product.save
-    else
-      @new_cart_product = Cart.create(
-        cod: @product.cod,
-        name: @product.name,
-        price: @product.price,
-        quantity: 1,
-        person_id: user)
-
-      @new_cart_product.save
-    end
-
-    redirect_to action: :index
-  end
   
   def increment_product
     user = current_user.id

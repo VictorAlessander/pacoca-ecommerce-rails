@@ -6,14 +6,18 @@ Rails.application.routes.draw do
 
   resources :carts do
     collection do
-      get "add_product"
       get "increment_product"
       get "decrement_product"
       get "checkout"
     end
   end
 
-  resources :products
+  resources :products do
+    collection do
+      get "add_product"
+    end
+  end
+
   resources :categories
   resources :accounts
   resources :people
