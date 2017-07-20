@@ -25,3 +25,25 @@ Category.all.each do |category|
 	end
 end
 puts("Generating data for Product...[OK]")
+
+puts("Generating account with full attributes...")
+User.create(
+	id: 1,
+	email: 'admin@pacocaecommerce.com.br',
+	password: 'administrador')
+
+Person.create(
+	id: 1,
+	name: "Administrador",
+	birthday: "1997-04-05",
+	user_id: 1
+	)
+
+Address.create(
+	id: 1,
+	street: 'None',
+	cep: '00000-000',
+	city: 'None',
+	state: 'None',
+	person_id: 1)
+puts("Generating account with full attributes...[OK]")
