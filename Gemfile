@@ -87,6 +87,9 @@ gem 'dotenv-rails'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 
+# Manage Procfile-based applications
+gem 'foreman'
+
 # Easily include static pages in your Rails app.
 #gem 'high_voltage', '~> 3.0.0'
 
