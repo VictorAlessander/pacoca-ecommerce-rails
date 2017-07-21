@@ -2,40 +2,54 @@
 
   <p id="notice"><%= notice %></p>
 
-  <h1>Orders</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Cod</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Total</th>
-        <th>Person</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @orders.each do |order| %>
+  <% if @orders %>
+    <table>
+      <thead>
         <tr>
-          <td><%= order.cod %></td>
-          <td><%= order.name %></td>
-          <td><%= order.price %></td>
-          <td><%= order.quantity %></td>
-          <td><%= order.total %></td>
-          <td><%= order.person %></td>
-          <td><%= link_to 'Show', order %></td>
-          <td><%= link_to 'Edit', edit_order_path(order) %></td>
-          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th>Cod</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Person</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% if @orders.respond_to?("each") %>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.cod %></td>
+              <td><%= order.name %></td>
+              <td><%= order.price %></td>
+              <td><%= order.quantity %></td>
+              <td><%= order.total %></td>
+              <td><%= order.person %></td>
+              <td><%= link_to 'Show', order %></td>
+              <td><%= link_to 'Edit', edit_order_path(order) %></td>
+              <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        <% else %>
+            <tr>
+              <td><%= @orders.cod %></td>
+              <td><%= @orders.name %></td>
+              <td><%= @orders.price %></td>
+              <td><%= @orders.quantity %></td>
+              <td><%= @orders.total %></td>
+              <td><%= @orders.person %></td>
+            </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+  <% else %>
+    <h1 align="center">Orders not found</h1>
+  <% end %>
 
   <br>
 
-  <%= link_to 'New Order', new_order_path, class: 'button is-primary' %>
+  <%= link_to 'Back to Home Index', home_index_path, class: 'button is-primary' %>
 
 <% end %>
