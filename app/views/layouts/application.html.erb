@@ -18,30 +18,7 @@
   <%= stylesheet_link_tag "hero" %>
 </head>
 <body>
-  <section class="hero is-primary is-large header-image">
-    <div class="hero-head">
-      <header class="nav">
-        <div class="container">
-          <div class="nav-left">
-            <a class="nav-item">Paçoca</a>
-          </div>
-          <div class="nav-right nav-menu">
-            <%= link_to('Home', home_index_path, {class: 'nav-item'}) %>
-
-            <% if user_signed_in? %>
-              <%= link_to 'Cart', carts_path, {class: 'nav-item'} %>
-              <%= link_to "#{current_user.email}", orders_path, {class: 'nav-item'} %>
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item' %>
-            <% else %>
-              <%= link_to 'Login', new_user_session_path, {class: 'nav-item'} %>
-            <% end %>
-          </div>
-        </div>
-      </header>
-    </div>
-
-    <%= yield :section %>
-  </section>
+  <%= render partial: 'layouts/pacoca_shared/section' %>
   
   <% if notice %>
     <script type="text/javascript">
@@ -58,20 +35,8 @@
     <%= yield :body %>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Paçoca</strong> by Victor Alessander.
-        </p>
-        <p>
-          <a class="icon" href="https://github.com/VictorAlessander/">
-            <i class="fa fa-github"></i>
-          </a>
-        </p>
-      </div>
-    </div>
-  </footer>
+  <%= render partial: 'layouts/pacoca_shared/footer' %>
+
   <%= javascript_include_tag "bulma" %>
   <%= javascript_include_tag "masks" %>
 

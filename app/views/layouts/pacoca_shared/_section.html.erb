@@ -1,0 +1,24 @@
+<section class="hero is-primary is-large header-image">
+  <div class="hero-head">
+    <header class="nav">
+      <div class="container">
+        <div class="nav-left">
+          <a class="nav-item">Paçoca</a>
+        </div>
+        <div class="nav-right nav-menu">
+          <%= link_to('Home', home_index_path, {class: 'nav-item'}) %>
+
+          <% if user_signed_in? %>
+            <%= link_to 'Cart', carts_path, {class: 'nav-item'} %>
+            <%= link_to "#{current_user.email}", orders_path, {class: 'nav-item'} %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item' %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path, {class: 'nav-item'} %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <%= yield :section %>
+</section>
