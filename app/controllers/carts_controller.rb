@@ -35,14 +35,6 @@ class CartsController < ApplicationController
     redirect_to action: :index
   end
 
-  def checkout
-    user = current_user.id
-
-    @total_price = Cart.total_price
-
-    @cart = Cart.all.find_by(person_id: user)
-  end
-
   # GET /carts/1
   # GET /carts/1.json
   def show

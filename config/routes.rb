@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :addresses
   resources :phones
   resources :orders
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
     collection do
       get "increment_product"
       get "decrement_product"
-      get "checkout"
     end
   end
 
@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   resources :categories
   resources :accounts
   resources :people
+
+  get 'checkout', to: 'checkout#index'
+  get 'checkout/finish-order', to: 'checkout#finish_order'
+
   get 'home/index'
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
