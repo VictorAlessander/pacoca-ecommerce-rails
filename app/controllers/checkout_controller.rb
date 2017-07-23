@@ -10,11 +10,10 @@ class CheckoutController < ApplicationController
   end
 
   def finish_order
-    user = current_user.id
 
     @total_price = Cart.total_price
 
-    @cart = Cart.where(person_id: user)
+    @cart = Cart.where(person_id: current_user.id)
 
     # Will avaliate if exists 2 or more products in cart variable
     if @cart.respond_to?("each")
@@ -33,7 +32,8 @@ class CheckoutController < ApplicationController
             price: cart_product.price,
             quantity: cart_product.quantity,
             total: @total_price,
-            person_id: user
+            person_id: current_user.id,
+            identification: current_user.token
             )
 
           @product_order.save
@@ -47,7 +47,9 @@ class CheckoutController < ApplicationController
         price: cart.price,
         quantity: cart.quantity,
         total: @total_price,
-        person_id: user)
+        person_id: current_user.id,
+        identification: current_user.token
+        )
     end
 
     @cart.destroy_all
