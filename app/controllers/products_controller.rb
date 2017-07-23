@@ -13,21 +13,25 @@ class ProductsController < ApplicationController
 
     @product = Product.all.find(params[:product_id])
 
-    @cart_product = Cart.find_by(cod: @product.cod)
+    @cart_product = Cart.find_by(cod: @product.cod, person_id: user)
 
     respond_to do |format|
       if @cart_product
-        format.js {@cart_product.quantity += 1
-        @cart_product.save}
+        format.js {
+          @cart_product.quantity += 1
+          @cart_product.save
+        }
       else
-        format.js {@new_cart_product = Cart.create(
+        format.js {
+          @new_cart_product = Cart.create(
           cod: @product.cod,
           name: @product.name,
           price: @product.price,
           quantity: 1,
           person_id: user)
   
-        @new_cart_product.save}
+          @new_cart_product.save
+        }
       end
     end
   end
