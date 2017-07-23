@@ -7,7 +7,12 @@ class OrdersController < ApplicationController
   def index
     user = current_user.id
 
-    @orders = Order.all.find_by(person_id: user)
+    if params[:search] && params[:search] != ""
+      @order = Order.search(params[:search]).where(person_id: user)
+      @total_order_price = Order.total_price(params[:search])
+    else
+      @order = nil
+    end
   end
 
   # GET /orders/1
