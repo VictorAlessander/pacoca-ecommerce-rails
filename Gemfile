@@ -90,6 +90,9 @@ gem 'devise'
 # Manage Procfile-based applications
 gem 'foreman'
 
+# Create uniques random tokens for any model in ruby on rails. Backport of ActiveRecord::SecureToken 5 to AR 3.x and 4.x
+gem 'has_secure_token'
+
 # Easily include static pages in your Rails app.
 #gem 'high_voltage', '~> 3.0.0'
 

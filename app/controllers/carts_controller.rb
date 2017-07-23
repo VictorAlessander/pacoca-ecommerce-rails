@@ -7,6 +7,8 @@ class CartsController < ApplicationController
   def index
     @cart = Cart.all.where(person_id: current_user.id)
     @total_price = Cart.total_price
+
+    @current_token = current_user.token
   end
   
   def increment_product
