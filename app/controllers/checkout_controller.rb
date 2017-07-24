@@ -6,7 +6,7 @@ class CheckoutController < ApplicationController
 
     @total_price = Cart.total_price
 
-    @cart = Cart.all.where(person_id: user)
+    @cart = Cart.where(person_id: user)
   end
 
   def finish_order
