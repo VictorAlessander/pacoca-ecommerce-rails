@@ -8,11 +8,6 @@ class PhonesController < ApplicationController
     @phones = Phone.all
   end
 
-  # GET /phones/1
-  # GET /phones/1.json
-  def show
-  end
-
   # GET /phones/new
   def new
     @phone = Phone.new

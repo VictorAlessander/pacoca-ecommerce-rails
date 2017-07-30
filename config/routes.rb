@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :addresses
-  resources :phones
+  resources :addresses, except: [:show]
+  resources :phones, except: [:show]
   resources :orders
 
-  resources :carts do
+  resources :carts, except: [:show] do
     collection do
       get "increment_product"
       get "decrement_product"
     end
   end
 
-  resources :products do
+  resources :products, except: [:show] do
     collection do
       get "add_product"
     end
   end
 
   resources :categories
-  resources :accounts
   resources :people
 
   get 'checkout', to: 'checkout#index'

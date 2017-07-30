@@ -37,11 +37,6 @@ class CartsController < ApplicationController
     redirect_to action: :index
   end
 
-  # GET /carts/1
-  # GET /carts/1.json
-  def show
-  end
-
   # GET /carts/new
   def new
     @cart = Cart.new
