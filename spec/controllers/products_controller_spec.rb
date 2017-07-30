@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
-  let(:user) {create user}
+  let(:user) {create :user}
+  let(:category) {create :category}
+  let(:product) {create :product}
 
   describe "GET #index" do
     it "renders the :index view" do
