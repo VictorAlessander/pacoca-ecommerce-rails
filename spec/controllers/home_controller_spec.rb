@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-
-RSpec.describe HomeController do
+RSpec.describe HomeController, type: :controller do
 
 	context 'GET #index' do
 		it "renders the :index view" do

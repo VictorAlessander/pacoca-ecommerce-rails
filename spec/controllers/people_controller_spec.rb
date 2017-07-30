@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-RSpec.describe PeopleController do
+RSpec.describe PeopleController, type: :controller do
 
 	before :each do
 		@person = create(:person,
