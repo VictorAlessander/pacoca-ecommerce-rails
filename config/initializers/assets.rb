@@ -17,5 +17,6 @@ Rails.application.config.assets.precompile += %w( bulma.css
 																									hero.css
 																									bulma.js
 																									masks.js
-                                                  notifyjs/notify.js)
+                                                  notifyjs/notify.js
+                                                  jquery_mask/jquery_mask.js)
 #Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
