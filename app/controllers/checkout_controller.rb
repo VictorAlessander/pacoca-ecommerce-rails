@@ -53,6 +53,8 @@ class CheckoutController < ApplicationController
     end
 
     @cart.destroy_all
+    
+    current_user.regenerate_token
 
     redirect_to home_index_url
   end
