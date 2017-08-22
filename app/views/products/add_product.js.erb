@@ -1,6 +1,15 @@
-$.notify("Added to cart!", {
-  className: "success",
-  hideAnimation: "slideUp",
-  hideDuration: 200,
-  globalPosition: 'right top'
-});
+<% if user_signed_in? %>
+    $.notify("Added to cart!", {
+      className: "success",
+      hideAnimation: "slideUp",
+      hideDuration: 200,
+      globalPosition: 'right top'
+    });
+<% else %>
+    $.notify("Sign in to buy!", {
+      className: "error",
+      hideAnimation: "slideUp",
+      hideDuration: 200,
+      globalPosition: 'right top'
+    });
+<% end %>
