@@ -5,5 +5,3 @@
 This project was made with study purposes.
 
 It's a prototype of a E-Commerce, missing the payment feature.
-
-# Under construction
