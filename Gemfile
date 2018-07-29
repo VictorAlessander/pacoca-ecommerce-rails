@@ -73,6 +73,7 @@ group :development, :test do
 
   # An IRB alternative and runtime developer console
   gem "pry"
+  gem "pry_debug"
 end
 
 # JQuery for rails
@@ -96,4 +97,4 @@ gem 'has_secure_token'
 # Easily include static pages in your Rails app.
 #gem 'high_voltage', '~> 3.0.0'
 
-ruby '2.4.1'
+ruby '2.4.3'
