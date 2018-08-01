@@ -1,4 +1,4 @@
-require 'support/factory_girl'
+require 'support/factory_bot'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
@@ -31,6 +31,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Shoulda::Matchers::ActiveRecord, type: :model
 end
 
 RSpec.configure do |config|

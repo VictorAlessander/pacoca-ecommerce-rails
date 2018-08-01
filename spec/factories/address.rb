@@ -1,7 +1,7 @@
 require 'faker'
 
 
-FactoryGirl.define do
+FactoryBot.define do
 	factory :address do
 		street Faker::Address.street_name
 		cep Faker::Address.zip_code

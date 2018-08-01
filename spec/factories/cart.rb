@@ -1,7 +1,7 @@
 require 'faker'
 
 
-FactoryGirl.define do
+FactoryBot.define do
 	factory :cart do
 		cod Faker::Number.number(3)
 		name Faker::Commerce.product_name

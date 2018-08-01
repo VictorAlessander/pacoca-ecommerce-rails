@@ -40,7 +40,7 @@ RSpec.describe PeopleController, type: :controller do
 			it 'Creates a new person' do
 				sign_in user
 				expect{
-					post :create, params: {person: FactoryGirl.attributes_for(:person, user_id: user.id)}
+					post :create, params: {person: FactoryBot.attributes_for(:person, user_id: user.id)}
 					}.to change{Person.count}.by(1)
 			end
 		end
@@ -78,17 +78,17 @@ RSpec.describe PeopleController, type: :controller do
 		context 'With valid attributes' do
 			it 'updates a existent person' do
 				sign_in user
-				put :update, params: {id: @person.id, person: FactoryGirl.attributes_for(:person, name: "Victor Alessander")}
+				put :update, params: {id: @person.id, person: FactoryBot.attributes_for(:person, name: "Victor Alessander")}
 				@person.reload
 				expect(assigns(:person)).to eq(@person)
 				expect(response).to redirect_to(:action => :show)
 			end
 		end
-		
+
 		context 'Not valid without a attribute' do
 			it 'Does not change @person attributes' do
 				sign_in user
-				put :update, params: {id: @person.id, person: FactoryGirl.attributes_for(:person,
+				put :update, params: {id: @person.id, person: FactoryBot.attributes_for(:person,
 					name: nil,
 					birthday: '1997-04-05',
 					email: 'alessander@protonmail.com')}
@@ -99,7 +99,7 @@ RSpec.describe PeopleController, type: :controller do
 
 			it 'Re-renders the edit method' do
 				sign_in user
-				put :update, params: {id: @person.id, person: FactoryGirl.attributes_for(:person,
+				put :update, params: {id: @person.id, person: FactoryBot.attributes_for(:person,
 					name: nil,
 					birthday: '1997-04-05')}
 				expect(response).to render_template(:edit)

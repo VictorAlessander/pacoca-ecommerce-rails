@@ -68,8 +68,7 @@ group :development, :test do
   # Makes tests easy on the fingers and the eyes
   gem 'shoulda'
 
-  # A library for setting up Ruby objects as test data.
-  gem "factory_girl_rails", "~> 4.0"
+  gem "factory_bot_rails"
 
   # An IRB alternative and runtime developer console
   gem "pry"

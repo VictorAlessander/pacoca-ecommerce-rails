@@ -5,7 +5,7 @@ require 'faker'
 RSpec.describe Product, type: :model do
 
 	let(:product) {create :product}
-	
+
 	it "Valid with all attributes" do
 		expect(product).to be_valid
 	end
